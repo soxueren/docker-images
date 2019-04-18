@@ -7,9 +7,6 @@ ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS  \
     
 RUN apk update && \
     apk add nodejs npm  && \
-    npm install -g yo generator-jhipster@${JHIPSTER_VERSION}
-    
-RUN addgroup -g 2001 -S yeoman && \
-         adduser yeoman -u 1001 -D -S  -s /bin/sh
+    npm install -g yo generator-jhipster@$JHIPSTER_VERSION --unsafe-perm=true --allow-root
 
 EXPOSE 8018
